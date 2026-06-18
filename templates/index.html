@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>SkyLend</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+
+</head>
+
+<body>
+
+    <div id="loading-screen">
+        <div class="loader"></div>
+    </div>
+
+    <nav>
+
+        <div class="logo-container">
+
+            <img src="{{ url_for('static', filename='images/logo.jpeg') }}" alt="SkyLend">
+
+            <h2>SkyLend</h2>
+
+        </div>
+
+        <ul>
+
+            <li onclick="showSection('home')">Home</li>
+
+            <li onclick="showSection('loans')">Loans</li>
+
+            <li onclick="showSection('calculator')">Calculator</li>
+
+            <li onclick="showSection('dashboard')">Dashboard</li>
+
+            <li onclick="showSection('contact')">Contact</li>
+
+        </ul>
+
+    </nav>
+
+    <section id="hero">
+
+        <div id="three-container"></div>
+
+        <div class="hero-content">
+
+            <h1>Lend Today, Grow Tomorrow</h1>
+
+            <p>
+                Fast. Secure. Transparent.
+            </p>
+
+            <button>
+                Apply Now
+            </button>
+
+        </div>
+
+    </section>
+
+    <main>
+
+        <section id="home" class="page-section active">
+            <h2>Welcome to SkyLend</h2>
+        </section>
+
+        <section id="loans" class="page-section">
+            <h2>Loan Products</h2>
+        </section>
+
+        <section id="calculator" class="page-section">
+            <h2>Loan Calculator</h2>
+        </section>
+
+        <section id="dashboard" class="page-section">
+            <h2>User Dashboard</h2>
+        </section>
+
+        <section id="contact" class="page-section">
+            <h2>Contact Us</h2>
+        </section>
+
+    </main>
+
+    <script src="{{ url_for('static', filename='js/app.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/three-logo.js') }}"></script>
+
+</body>
+
+</html>
