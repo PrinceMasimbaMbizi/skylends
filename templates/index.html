@@ -29,6 +29,7 @@
 
         </div>
 
+
         <ul>
 
             <li onclick="showSection('home')">Home</li>
@@ -37,13 +38,15 @@
 
             <li onclick="showSection('calculator')">Calculator</li>
 
-            <li onclick="showSection('dashboard')">Dashboard</li>
-
             <li onclick="showSection('contact')">Contact</li>
+
+            <li onclick="showSection('login')">Login</li>
 
         </ul>
 
     </nav>
+
+    <div id="three-container"></div>
 
     <section id="hero">
 
@@ -56,9 +59,8 @@
             <p>
                 Fast. Secure. Transparent.
             </p>
-
-            <button>
-                Apply Now
+            <button onclick="showSection('calculator')">
+                Calculate Your Loan
             </button>
 
         </div>
@@ -68,30 +70,304 @@
     <main>
 
         <section id="home" class="page-section active">
-            <h2>Welcome to SkyLend</h2>
+
+            <div class="home-content">
+
+                <h2>Welcome to SkyLend</h2>
+
+                <p>
+                    Your trusted partner for fast, secure and transparent lending.
+                    Whether you need short-term financial assistance or flexible repayment options,
+                    SkyLend is committed to helping you achieve your goals with confidence.
+                </p>
+
+                <div class="home-cards">
+
+                    <div class="home-card">
+
+                        <h3>Fast Approval</h3>
+
+                        <p>
+                            Get your loan application reviewed quickly and receive
+                            instant feedback on eligibility.
+                        </p>
+
+                    </div>
+
+                    <div class="home-card">
+
+                        <h3>Flexible Terms</h3>
+
+                        <p>
+                            Choose repayment periods that suit your needs with clear
+                            and transparent pricing.
+                        </p>
+
+                    </div>
+
+                    <div class="home-card">
+
+                        <h3>Secure Platform</h3>
+
+                        <p>
+                            Your personal information and financial data are protected
+                            using industry-standard security practices.
+                        </p>
+
+                    </div>
+
+                </div>
+
+                <div class="home-footer">
+
+                    <h3>Why Choose SkyLend?</h3>
+
+                    <p>
+                        We make borrowing simple. No hidden fees, no complicated
+                        processes, just straightforward lending designed around you.
+                    </p>
+
+                </div>
+
+            </div>
+
         </section>
 
         <section id="loans" class="page-section">
-            <h2>Loan Products</h2>
-        </section>
 
+            <div class="loans-content">
+
+                <h2>Our Loan Products</h2>
+
+                <p>
+                    Choose a loan option that suits your financial needs.
+                </p>
+
+                <div class="loan-cards">
+
+                    <div class="loan-card">
+                        <h3>2 Week Loan</h3>
+                        <p>Perfect for short-term emergencies and urgent expenses.</p>
+                        <h4>Interest Rate: 20%</h4>
+                    </div>
+
+                    <div class="loan-card">
+                        <h3>1 Month Loan</h3>
+                        <p>Ideal for larger expenses requiring more time to repay.</p>
+                        <h4>Interest Rate: 35%</h4>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
         <section id="calculator" class="page-section">
-            <h2>Loan Calculator</h2>
-        </section>
 
-        <section id="dashboard" class="page-section">
-            <h2>User Dashboard</h2>
+            <div class="calculator-wrapper">
+
+                <h2>Loan Calculator</h2>
+
+                <p>
+                    Calculate your repayment amount instantly before applying.
+                </p>
+
+                <div class="calculator-card">
+
+                    <input type="number" id="borrowed" placeholder="Enter Amount To Borrow">
+
+                    <select id="period">
+
+                        <option value="">
+                            Select Loan Period
+                        </option>
+
+                        <option value="14">
+                            2 Weeks (20% Interest)
+                        </option>
+
+                        <option value="30">
+                            1 Month (35% Interest)
+                        </option>
+
+                    </select>
+
+                    <button onclick="calculateLoan()">
+                        Calculate Loan
+                    </button>
+
+                    <div class="results">
+
+                        <div class="result-box">
+
+                            <h4>Borrowed</h4>
+
+                            <span id="borrowedDisplay">
+                                ₹0.00
+                            </span>
+
+                        </div>
+
+                        <div class="result-box">
+
+                            <h4>Amount To Return</h4>
+
+                            <span id="returnedDisplay">
+                                ₹0.00
+                            </span>
+
+                        </div>
+
+                        <div class="result-box">
+
+                            <h4>Period</h4>
+
+                            <span id="periodDisplay">
+                                -
+                            </span>
+
+                        </div>
+
+                        <div class="result-box">
+
+                            <h4>Due Date</h4>
+
+                            <span id="dueDateDisplay">
+                                -
+                            </span>
+
+                        </div>
+
+                    </div>
+
+                    <button class="borrow-btn">
+                        Borrow Online
+                    </button>
+
+                </div>
+
+            </div>
+
         </section>
 
         <section id="contact" class="page-section">
-            <h2>Contact Us</h2>
+
+            <div class="contact-content">
+
+                <h2>Contact SkyLend</h2>
+
+                <p>
+                    We're here to assist you with any questions regarding loans,
+                    repayments, or account support.
+                </p>
+
+                <div class="contact-card">
+
+                    <h3>Email</h3>
+
+                    <p>
+                        skylendsinvestments@gmail.com
+                    </p>
+
+                    <h3>Phone</h3>
+
+                    <p>
+                        +91 62 307 99202
+                    </p>
+
+                    <h3>Office Hours</h3>
+
+                    <p>
+                        Monday - Saturday
+                        <br>
+                        08:00 AM - 20:00 PM
+                    </p>
+
+                </div>
+
+                <form class="contact-form">
+
+                    <input type="text" placeholder="Your Name">
+
+                    <input type="email" placeholder="Your Email">
+
+                    <textarea placeholder="Your Message"></textarea>
+
+                    <button type="submit">
+                        Send Message
+                    </button>
+
+                </form>
+
+            </div>
+
+        </section>
+
+        <section id="login" class="page-section">
+
+            <div class="container">
+
+                <img src="{{ url_for('static', filename='images/logo.jpeg') }}" class="logo">
+
+                <h1>SkyLend</h1>
+
+                <p>Lend Today Grow Tomorrow</p>
+
+                <div class="tabs">
+
+                    <button type="button" onclick="showLogin()" id="loginBtn">
+                        Login
+                    </button>
+
+                    <button type="button" onclick="showRegister()" id="registerBtn">
+                        Create Account
+                    </button>
+
+                </div>
+
+                <!-- LOGIN -->
+
+                <form id="loginForm" action="/login" method="POST">
+
+                    <input type="text" name="username" placeholder="Username" required>
+
+                    <input type="password" name="password" placeholder="Password" required>
+
+                    <button type="submit">
+                        Sign In
+                    </button>
+
+                </form>
+
+                <!-- REGISTER -->
+
+                <form id="registerForm" action="/register" method="POST">
+
+                    <input type="text" name="fullname" placeholder="Full Name" required>
+
+                    <input type="email" name="email" placeholder="Email" required>
+
+                    <input type="text" name="username" placeholder="Username" required>
+
+                    <input type="password" name="password" placeholder="Password" required>
+
+                    <button type="submit">
+                        Create Account
+                    </button>
+
+                </form>
+
+            </div>
+
         </section>
 
     </main>
 
     <script src="{{ url_for('static', filename='js/app.js') }}"></script>
-    <script src="{{ url_for('static', filename='js/three-logo.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/login.js') }}"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
 
+    <script src="{{ url_for('static', filename='js/three-logo.js') }}"></script>
 </body>
 
 </html>

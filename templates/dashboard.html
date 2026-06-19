@@ -1,0 +1,80 @@
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>SkyLend Dashboard</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/dashboard.css') }}">
+
+</head>
+
+<body>
+
+    <div class="loan-calculator-card">
+
+        <h2>Apply For A Loan</h2>
+
+        <input type="number" id="borrowed" placeholder="Enter Amount To Borrow">
+
+        <select id="period">
+
+            <option value="">
+                Select Loan Period
+            </option>
+
+            <option value="14">
+                2 Weeks (20%)
+            </option>
+
+            <option value="30">
+                1 Month (35%)
+            </option>
+
+        </select>
+
+        <button onclick="calculateLoan()">
+            Calculate
+        </button>
+
+        <div class="results">
+
+            <h3>
+                Borrowed:
+                <span id="borrowedDisplay">0</span>
+            </h3>
+
+            <h3>
+                Returned:
+                <span id="returnedDisplay">0</span>
+            </h3>
+
+            <h3>
+                Period:
+                <span id="periodDisplay">-</span>
+            </h3>
+
+            <h3>
+                Due Date:
+                <span id="dueDateDisplay">-</span>
+            </h3>
+
+        </div>
+
+        <button class="borrow-btn">
+            Borrow Online
+        </button>
+
+    </div>
+
+    <script src="{{ url_for('static', filename='js/dashboard.js') }}"></script>
+
+</body>
+
+</html>
+
+</body>
+
+</html>
