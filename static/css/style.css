@@ -73,7 +73,7 @@ nav li:hover {
 }
 
 #hero {
-    height: 100vh;
+    height: 70vh;
     position: relative;
     display: flex;
     align-items: center;
@@ -1128,6 +1128,10 @@ nav ul li.active-nav {
         backdrop-filter: blur(20px);
     }
 
+    body {
+        padding-top: 120px;
+    }
+
     .logo-container {
         width: 100%;
         justify-content: center;
@@ -1158,7 +1162,7 @@ nav ul li.active-nav {
     /* HERO */
 
     #hero {
-        min-height: 100vh;
+        min-height: 75vh;
         padding: 140px 20px 60px;
     }
 
