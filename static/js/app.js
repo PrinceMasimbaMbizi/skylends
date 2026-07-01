@@ -8,22 +8,6 @@ window.addEventListener('load', () => {
 
 });
 
-function showSection(id) {
-
-    document.querySelectorAll('.page-section')
-        .forEach(section => {
-            section.classList.remove('active');
-        });
-
-    document.getElementById(id)
-        .classList.add('active');
-
-    window.scrollTo({
-        top: 0,
-        behavior: 'smooth'
-    });
-
-}
 
 function showLogin() {
 
@@ -153,3 +137,106 @@ function calculateLoan() {
     ).innerText =
         `${day} ${month} ${year}`;
 }
+
+document.getElementById("loanForm").addEventListener("submit", function (e) {
+
+    e.preventDefault();
+
+    const name = document.getElementById("fullname").value;
+    const phone = document.getElementById("phone").value;
+    const purpose = document.getElementById("purpose").value;
+
+    const amountBorrowed =
+        document.getElementById("borrowedDisplay").innerText;
+
+    const amountReturned =
+        document.getElementById("returnedDisplay").innerText;
+
+    const loanPeriod =
+        document.getElementById("periodDisplay").innerText;
+
+    const dueDate =
+        document.getElementById("dueDateDisplay").innerText;
+
+    const message = `🏦 SkyLend Loan Application
+
+Full Name: ${name}
+Phone Number: ${phone}
+
+Amount to Borrow: ${amountBorrowed}
+Amount to Return: ${amountReturned}
+Loan Period: ${loanPeriod}
+Due Date: ${dueDate}
+
+Purpose:
+${purpose}`;
+
+    window.open(
+        "https://wa.me/916230799202?text=" + encodeURIComponent(message),
+        "_blank"
+    );
+
+});
+
+
+window.onclick = function (e) {
+
+    if (e.target == document.getElementById("loanModal")) {
+
+        closeLoanModal();
+
+    }
+
+}
+
+function openLoanForm() {
+
+    if (document.getElementById("borrowedDisplay").innerText === "₹0.00") {
+        alert("Please calculate your loan first.");
+        return;
+    }
+
+    document.getElementById("loanModal").classList.add("active");
+
+    document.getElementById("loanAmount").value =
+        document.getElementById("borrowedDisplay").innerText;
+}
+
+document.querySelector(".close-modal").onclick = closeLoanForm;
+
+window.onclick = function (e) {
+
+    if (e.target === document.getElementById("loanModal")) {
+        closeLoanForm();
+    }
+
+}
+
+function closeLoanForm() {
+
+    document.getElementById("loanModal").classList.remove("active");
+
+}
+
+window.addEventListener("popstate", function () {
+
+    if (document.getElementById("loanFormSection").classList.contains("show")) {
+
+        closeLoanForm();
+
+    }
+
+});
+
+
+window.addEventListener("popstate", function () {
+
+    if (document.getElementById("loanFormSection").classList.contains("show")) {
+
+        closeLoanForm();
+
+    }
+
+});
+
+

@@ -46,8 +46,6 @@
 
     </nav>
 
-    <div id="three-container"></div>
-
     <section id="hero">
 
         <div id="three-container"></div>
@@ -240,8 +238,8 @@
 
                     </div>
 
-                    <button class="borrow-btn">
-                        Borrow Online
+                    <button onclick="openLoanForm()">
+                        Borrow Now
                     </button>
 
                 </div>
@@ -249,119 +247,152 @@
             </div>
 
         </section>
+    </main>
 
-        <section id="contact" class="page-section">
+    <!-- Loan Application Form -->
 
-            <div class="contact-content">
+    <div id="loanModal" class="modal">
 
-                <h2>Contact SkyLend</h2>
+        <div class="modal-content">
+
+            <span class="close-modal">&times;</span>
+
+            <h2>Loan Application</h2>
+
+            <form id="loanForm">
+
+                <input type="text" id="fullname" placeholder="Full Name" required>
+
+                <input type="tel" id="phone" placeholder="Phone Number" required>
+
+                <input type="number" id="loanAmount" placeholder="Loan Amount" readonly>
+
+                <textarea id="purpose" placeholder="Purpose of Loan"></textarea>
+
+                <button onclick="openLoanForm()">
+                    Borrow Now
+                </button>
+
+            </form>
+
+        </div>
+
+    </div>
+
+
+    <!-- Contact us form-->
+    <section id="contact" class="page-section">
+
+        <div class="contact-content">
+
+            <h2>Contact SkyLend</h2>
+
+            <p>
+                We're here to assist you with any questions regarding loans,
+                repayments, or account support.
+            </p>
+
+            <div class="contact-card">
+
+                <h3>Email</h3>
 
                 <p>
-                    We're here to assist you with any questions regarding loans,
-                    repayments, or account support.
+                    skylendsinvestments@gmail.com
                 </p>
 
-                <div class="contact-card">
+                <h3>Phone</h3>
 
-                    <h3>Email</h3>
+                <p>
+                    +91 62 307 99202
+                </p>
 
-                    <p>
-                        skylendsinvestments@gmail.com
-                    </p>
+                <h3>Office Hours</h3>
 
-                    <h3>Phone</h3>
-
-                    <p>
-                        +91 62 307 99202
-                    </p>
-
-                    <h3>Office Hours</h3>
-
-                    <p>
-                        Monday - Saturday
-                        <br>
-                        08:00 AM - 20:00 PM
-                    </p>
-
-                </div>
-
-                <form class="contact-form">
-
-                    <input type="text" placeholder="Your Name">
-
-                    <input type="email" placeholder="Your Email">
-
-                    <textarea placeholder="Your Message"></textarea>
-
-                    <button type="submit">
-                        Send Message
-                    </button>
-
-                </form>
+                <p>
+                    Monday - Saturday
+                    <br>
+                    08:00 AM - 20:00 PM
+                </p>
 
             </div>
 
-        </section>
+            <form class="contact-form">
 
-        <section id="login" class="page-section">
+                <input type="text" placeholder="Your Name">
 
-            <div class="container">
+                <input type="email" placeholder="Your Email">
 
-                <img src="{{ url_for('static', filename='images/logo.jpeg') }}" class="logo">
+                <textarea placeholder="Your Message"></textarea>
 
-                <h1>SkyLend</h1>
+                <button type="submit">
+                    Send Message
+                </button>
 
-                <p>Lend Today Grow Tomorrow</p>
+            </form>
 
-                <div class="tabs">
+        </div>
 
-                    <button type="button" onclick="showLogin()" id="loginBtn">
-                        Login
-                    </button>
+    </section>
 
-                    <button type="button" onclick="showRegister()" id="registerBtn">
-                        Create Account
-                    </button>
+    <section id="login" class="page-section">
 
-                </div>
+        <div class="container">
 
-                <!-- LOGIN -->
+            <img src="{{ url_for('static', filename='images/logo.jpeg') }}" class="logo">
 
-                <form id="loginForm" action="/login" method="POST">
+            <h1>SkyLend</h1>
 
-                    <input type="text" name="username" placeholder="Username" required>
+            <p>Lend Today Grow Tomorrow</p>
 
-                    <input type="password" name="password" placeholder="Password" required>
+            <div class="tabs">
 
-                    <button type="submit">
-                        Sign In
-                    </button>
+                <button type="button" onclick="showLogin()" id="loginBtn">
+                    Login
+                </button>
 
-                </form>
-
-                <!-- REGISTER -->
-
-                <form id="registerForm" action="/register" method="POST">
-
-                    <input type="text" name="fullname" placeholder="Full Name" required>
-
-                    <input type="email" name="email" placeholder="Email" required>
-
-                    <input type="text" name="username" placeholder="Username" required>
-
-                    <input type="password" name="password" placeholder="Password" required>
-
-                    <button type="submit">
-                        Create Account
-                    </button>
-
-                </form>
+                <button type="button" onclick="showRegister()" id="registerBtn">
+                    Create Account
+                </button>
 
             </div>
 
-        </section>
+            <!-- LOGIN -->
 
-    </main>
+            <form id="loginForm" action="/login" method="POST">
+
+                <input type="text" name="username" placeholder="Username" required>
+
+                <input type="password" name="password" placeholder="Password" required>
+
+                <button type="submit">
+                    Sign In
+                </button>
+
+            </form>
+
+            <!-- REGISTER -->
+
+            <form id="registerForm" action="/register" method="POST">
+
+                <input type="text" name="fullname" placeholder="Full Name" required>
+
+                <input type="email" name="email" placeholder="Email" required>
+
+                <input type="text" name="username" placeholder="Username" required>
+
+                <input type="password" name="password" placeholder="Password" required>
+
+                <button type="submit">
+                    Create Account
+                </button>
+
+            </form>
+
+        </div>
+
+    </section>
+
+
 
     <script src="{{ url_for('static', filename='js/app.js') }}"></script>
     <script src="{{ url_for('static', filename='js/login.js') }}"></script>
